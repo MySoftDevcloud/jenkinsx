@@ -6,6 +6,10 @@ data:
       repos:
       - MySoftDevcloud/jenkinsx
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - MySoftDevcloud/aspnet-app-001
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -16,6 +20,11 @@ data:
         env/prow/plugins.yaml:
           name: plugins
     external_plugins:
+      MySoftDevcloud/aspnet-app-001:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
       MySoftDevcloud/jenkinsx:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
@@ -26,6 +35,20 @@ data:
       additional_labels: null
     owners: {}
     plugins:
+      MySoftDevcloud/aspnet-app-001:
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
       MySoftDevcloud/jenkinsx:
       - config-updater
       - approve
@@ -53,6 +76,11 @@ data:
     - repos:
       - MySoftDevcloud/jenkinsx
       trusted_org: MySoftDevcloud
+    - repos:
+      - MySoftDevcloud/aspnet-app-001
+      trusted_org: MySoftDevcloud
+    welcome:
+    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
