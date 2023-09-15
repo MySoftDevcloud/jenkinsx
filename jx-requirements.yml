@@ -17,8 +17,8 @@ spec:
     registry: 10.104.245.237
   environments:
   - key: dev
-    owner: hughexp
-    repository: jx3-minikube_home
+    owner: MySoftDevcloud
+    repository: jenkinsx
   - key: staging
   - key: production
   ingress:
